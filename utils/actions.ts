@@ -38,7 +38,7 @@ export const createProfileAction = async (
             message: error instanceof Error ? error.message : 'An error occurred',
         };
     }
-    redirect('/');
+    redirect('/profile');
 };
 export const fetchProfileImage = async () => {
     const user = await currentUser();
