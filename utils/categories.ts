@@ -1,6 +1,6 @@
 import { IconType } from 'react-icons';
 
-import { FcBiotech, FcAssistant, FcBrokenLink, FcRegisteredTrademark } from "react-icons/fc";
+import { FcBiotech, FcAssistant, FcBrokenLink, FcRegisteredTrademark, FcFactory, FcReddit } from "react-icons/fc";
 
 type Category = {
     label: CategoryLabel;
@@ -11,7 +11,9 @@ export type CategoryLabel =
     | 'apartament'
     | 'bungalow'
     | 'tent'
-    | 'Cottage';
+    | 'Cottage'
+    | 'cabin'
+    | 'caravan';
 
 export const categories: Category[] = [
     {
@@ -29,6 +31,14 @@ export const categories: Category[] = [
     {
         label: 'Cottage',
         icon: FcRegisteredTrademark,
+    },
+    {
+        label: 'cabin',
+        icon: FcFactory,
+    },
+    {
+        label: 'caravan',
+        icon: FcReddit,
     },
 
 ];
