@@ -1,4 +1,6 @@
+import { categories } from '@/utils/categories';
 import React from 'react'
+import Link from 'next/link';
 const users = [
     { id: 1, firstName: 'John', lastName: 'Doe' },
     { id: 2, firstName: 'Jane', lastName: 'Smith' },
@@ -6,17 +8,30 @@ const users = [
 ];
 
 const CategoriesList = ({
+    category,
     search,
 }: {
+    category?: string;
     search?: string;
 }) => {
     {
         const searchTerm = search ? `&search=${search}` : '';
         return (
-            <section>
-                {users.map((user) => {
+            <section className='flex gap-x-4'>
+                {categories.map((item) => {
+                    const isActive = item.label === category;
                     return (
-                        <div key={user.id}> {user.firstName} {user.lastName}</div>
+                        <Link key={item.label}
+                            href={`/?category=${item.label}${searchTerm}`}
+                        >
+                            <article
+                                className={`p-3 flex flex-col items-center cursor-pointer duration-300 hover:text-primary w-[100px] ${isActive ? 'text-primary' : ''
+                                    }`}
+                            >
+                                <item.icon className='w-8 h-8' />
+                                <p className='capitalize text-sm mt-1'>{item.label}</p>
+                            </article>
+                        </Link>
                     )
                 })}
 
