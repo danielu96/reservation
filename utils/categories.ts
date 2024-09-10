@@ -8,26 +8,26 @@ type Category = {
 };
 
 export type CategoryLabel =
-    | 'cabin'
-    | 'caravan'
-    | 'Aila'
-    | 'Monty';
+    | 'apartament'
+    | 'bungalow'
+    | 'tent'
+    | 'Cottage';
 
 export const categories: Category[] = [
     {
-        label: 'cabin',
+        label: 'apartament',
         icon: FcBiotech,
     },
     {
-        label: 'caravan',
+        label: 'bungalow',
         icon: FcBrokenLink,
     },
     {
-        label: 'Aila',
+        label: 'tent',
         icon: FcAssistant,
     },
     {
-        label: 'Monty',
+        label: 'Cottage',
         icon: FcRegisteredTrademark,
     },
 
