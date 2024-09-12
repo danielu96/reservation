@@ -4,6 +4,7 @@ import FormInput from '@/components/form/FormInput'
 import React from 'react'
 import { createPropertyAction } from '@/utils/actions'
 import PriceInput from '@/components/form/PriceInput'
+import CategoriesInput from '@/components/form/CategoriesInput'
 
 
 const page = () => {
@@ -24,6 +25,7 @@ const page = () => {
                     defaultValue='hard tent trip'
                 />
                 <PriceInput />
+                <CategoriesInput />
                 <SubmitButton text='create rental' />
             </FormContainer>
         </section>
