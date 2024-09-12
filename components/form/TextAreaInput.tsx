@@ -26,5 +26,5 @@ function TextAreaInput({ name, labelText, defaultValue }: TextAreaInputProps) {
 }
 
 const tempDefaultDescription =
-    'It is default description. bla... bla... bla... ';
+    'Best place i ever seen and with such a good people around me ';
 export default TextAreaInput;
