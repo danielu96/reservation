@@ -9,6 +9,7 @@ import TextAreaInput from '@/components/form/TextAreaInput'
 import CountriesInput from '@/components/form/CountriesInput'
 import ImageInput from '@/components/form/ImageInput'
 import CounterInput from '@/components/form/CounterInput'
+import AmenitiesInput from '@/components/form/AmenitiesInput'
 
 
 const page = () => {
@@ -38,7 +39,8 @@ const page = () => {
                 <CounterInput detail='bedrooms' />
                 <CounterInput detail='beds' />
                 <CounterInput detail='baths' />
-                <SubmitButton text='create rental' />
+                <AmenitiesInput />
+                <SubmitButton className='mt-2' text='create rental' />
             </FormContainer>
         </section>
     )
