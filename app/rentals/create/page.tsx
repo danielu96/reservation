@@ -8,6 +8,7 @@ import CategoriesInput from '@/components/form/CategoriesInput'
 import TextAreaInput from '@/components/form/TextAreaInput'
 import CountriesInput from '@/components/form/CountriesInput'
 import ImageInput from '@/components/form/ImageInput'
+import CounterInput from '@/components/form/CounterInput'
 
 
 const page = () => {
@@ -32,6 +33,11 @@ const page = () => {
                 <TextAreaInput name='description' labelText='Description (10 - 1000 Words)' />
                 <CountriesInput />
                 <ImageInput />
+                <h3 className='text-lg mt-8 mb-4 font-medium'>Accommodation Details</h3>
+                <CounterInput detail='guests' />
+                <CounterInput detail='bedrooms' />
+                <CounterInput detail='beds' />
+                <CounterInput detail='baths' />
                 <SubmitButton text='create rental' />
             </FormContainer>
         </section>
