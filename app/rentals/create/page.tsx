@@ -7,6 +7,7 @@ import PriceInput from '@/components/form/PriceInput'
 import CategoriesInput from '@/components/form/CategoriesInput'
 import TextAreaInput from '@/components/form/TextAreaInput'
 import CountriesInput from '@/components/form/CountriesInput'
+import ImageInput from '@/components/form/ImageInput'
 
 
 const page = () => {
@@ -30,6 +31,7 @@ const page = () => {
                 <CategoriesInput />
                 <TextAreaInput name='description' labelText='Description (10 - 1000 Words)' />
                 <CountriesInput />
+                <ImageInput />
                 <SubmitButton text='create rental' />
             </FormContainer>
         </section>
