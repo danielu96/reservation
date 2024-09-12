@@ -5,6 +5,7 @@ import React from 'react'
 import { createPropertyAction } from '@/utils/actions'
 import PriceInput from '@/components/form/PriceInput'
 import CategoriesInput from '@/components/form/CategoriesInput'
+import TextAreaInput from '@/components/form/TextAreaInput'
 
 
 const page = () => {
@@ -26,6 +27,7 @@ const page = () => {
                 />
                 <PriceInput />
                 <CategoriesInput />
+                <TextAreaInput name='description' labelText='Description (10 - 1000 Words)' />
                 <SubmitButton text='create rental' />
             </FormContainer>
         </section>
