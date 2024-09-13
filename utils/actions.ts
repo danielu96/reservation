@@ -252,3 +252,23 @@ export async function fetchPropertyReviews(propertyId: string) {
     });
     return reviews;
 }
+export const fetchPropertyReviewsByUser = async () => {
+    const user = await getAuthUser();
+    const reviews = await db.review.findMany({
+        where: {
+            profileId: user.id,
+        },
+        select: {
+            id: true,
+            rating: true,
+            comment: true,
+            property: {
+                select: {
+                    name: true,
+                    image: true,
+                },
+            },
+        },
+    });
+    return reviews;
+};
