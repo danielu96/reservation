@@ -1,6 +1,8 @@
 import React from 'react'
 import ReviewCard from '@/components/reviews/ReviewCard'
-import { fetchPropertyReviewsByUser } from '@/utils/actions'
+import { deleteReviewAction, fetchPropertyReviewsByUser } from '@/utils/actions'
+import FormContainer from '@/components/form/FormContainer';
+import { IconButton } from '@/components/form/Buttons';
 async function ReviewsPage() {
     const reviews = await fetchPropertyReviewsByUser();
     return (
@@ -17,7 +19,9 @@ async function ReviewsPage() {
                         image,
                     }
                     return (
-                        <ReviewCard key={review.id} reviewInfo={reviewInfo}></ReviewCard>
+                        <ReviewCard key={review.id} reviewInfo={reviewInfo}>
+                            <DeleteReview reviewId={review.id} />
+                        </ReviewCard>
                     )
                 }
                 )}
@@ -25,5 +29,14 @@ async function ReviewsPage() {
         </>
     )
 }
+const DeleteReview = ({ reviewId }: { reviewId: string }) => {
+    const deleteReview = deleteReviewAction.bind(null, { reviewId });
+    return (
+        <FormContainer action={deleteReview}>
+            <IconButton actionType='delete' />
+        </FormContainer>
+    );
+};
+
 
 export default ReviewsPage
