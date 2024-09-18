@@ -13,6 +13,7 @@ import SubmitReview from '@/components/reviews/SubmitReview';
 import PropertyReviews from '@/components/reviews/PropertyReviews';
 import { findExistingReview } from '@/utils/actions';
 import { auth } from '@clerk/nextjs/server';
+import PropertyRating from '@/components/card/PropertyRating';
 
 
 const DynamicMap = dynamic(
@@ -49,6 +50,7 @@ async function PropertyDetailsPage({ params }: { params: { id: string } }) {
                 </div>
             </header>
             <ImageContainer mainImage={property.image} name={property.name} />
+            <PropertyRating inPage propertyId={property.id} />
             <PropertyDetails details={details} />
             <UserInfo profile={{ firstName, profileImage }} />
             <Separator className='mt-4' />

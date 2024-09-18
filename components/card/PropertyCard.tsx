@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import { PropertyCardProps } from '@/utils/types';
+import PropertyRating from './PropertyRating';
 
 const PropertyCard = ({ property }: { property: PropertyCardProps }) => {
     const { name, image, price } = property;
@@ -22,6 +23,7 @@ const PropertyCard = ({ property }: { property: PropertyCardProps }) => {
                     <h3 className='text-sm font-semibold mt-1'>
                         {name.substring(0, 30)}
                     </h3>
+                    <PropertyRating inPage={false} propertyId={propertyId} />
                 </div>
                 <p className='text-sm mt-1 text-muted-foreground'>
                     {tagline.substring(0, 40)}
