@@ -10,15 +10,16 @@ async function PropertyRating({
 }) {
     const { rating, count } = await fetchPropertyRating(propertyId);
     if (count === 0) return null;
+    const className = `flex gap-1 items-center ${inPage ? 'text-md' : 'text-xs'}`;
     const countText = count === 1 ? 'review' : 'reviews';
     const countValue = `(${count}) ${inPage ? countText : ''}`;
     return (
-        <>
-            <div>
-                <FaStar className='w-3 h-3' />
-                {rating}{countValue}
-            </div>
-        </>
+
+        <span className={className}>
+            <FaStar className='w-3 h-3' />
+            {rating}{countValue}
+        </span>
+
     )
 }
 
