@@ -14,6 +14,7 @@ import PropertyReviews from '@/components/reviews/PropertyReviews';
 import { findExistingReview } from '@/utils/actions';
 import { auth } from '@clerk/nextjs/server';
 import PropertyRating from '@/components/card/PropertyRating';
+import BookingCalendar from '@/components/booking/BookingCalendar';
 
 
 const DynamicMap = dynamic(
@@ -48,18 +49,28 @@ async function PropertyDetailsPage({ params }: { params: { id: string } }) {
                     {/* share button */}
                     {/* <FavoriteToggleButton propertyId={property.id} /> */}
                 </div>
-            </header>
+            </header >
             <ImageContainer mainImage={property.image} name={property.name} />
-            <PropertyRating inPage propertyId={property.id} />
-            <PropertyDetails details={details} />
-            <UserInfo profile={{ firstName, profileImage }} />
-            <Separator className='mt-4' />
-            <Description description={property.description} />
-            <Amenities amenities={property.amenities} />
-            <DynamicMap countryCode={property.country} />
-            {reviewDoesNotExist && <SubmitReview propertyId={property.id} />}
-            {/* <SubmitReview propertyId={property.id} /> */}
-            <PropertyReviews propertyId={property.id} />
+            <section className='lg:grid lg:grid-cols-12 gap-x-12 mt-12'>
+                <div className='lg:col-span-8'>
+                    <div className='flex gap-x-4 items-center'>
+                        <h1 className='text-xl font-bold'>{property.name} </h1>
+                        <PropertyRating inPage propertyId={property.id} />
+                    </div>
+                    <PropertyDetails details={details} />
+                    <UserInfo profile={{ firstName, profileImage }} />
+                    <Separator className='mt-4' />
+                    <Description description={property.description} />
+                    <Amenities amenities={property.amenities} />
+                    <DynamicMap countryCode={property.country} />
+                    {reviewDoesNotExist && <SubmitReview propertyId={property.id} />}
+                    {/* <SubmitReview propertyId={property.id} /> */}
+                    <PropertyReviews propertyId={property.id} />
+                </div>
+                <div className='lg:col-span-4 flex flex-col items-center'>
+                    <BookingCalendar />
+                </div>
+            </section>
         </section>
     );
 }
