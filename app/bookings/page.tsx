@@ -16,8 +16,8 @@ import {
 import FormContainer from '@/components/form/FormContainer';
 import { IconButton } from '@/components/form/Buttons';
 import {
-  fetchBookings
-  // deleteBookingAction 
+  fetchBookings,
+  deleteBookingAction
 } from '@/utils/actions';
 
 async function BookingsPage() {
@@ -65,7 +65,7 @@ async function BookingsPage() {
                 <TableCell>{startDate}</TableCell>
                 <TableCell>{endDate}</TableCell>
                 <TableCell>
-                  {/* <DeleteBooking bookingId={id} /> */}
+                  <DeleteBooking bookingId={id} />
                 </TableCell>
               </TableRow>
             );
@@ -76,13 +76,13 @@ async function BookingsPage() {
   );
 }
 
-// function DeleteBooking({ bookingId }: { bookingId: string }) {
-//   const deleteBooking = deleteBookingAction.bind(null, { bookingId });
-//   return (
-//     <FormContainer action={deleteBooking}>
-//       <IconButton actionType='delete' />
-//     </FormContainer>
-//   );
-// }
+function DeleteBooking({ bookingId }: { bookingId: string }) {
+  const deleteBooking = deleteBookingAction.bind(null, { bookingId });
+  return (
+    <FormContainer action={deleteBooking}>
+      <IconButton actionType='delete' />
+    </FormContainer>
+  );
+}
 
 export default BookingsPage;
