@@ -4,10 +4,17 @@ export function formatQuantity(quantity: number, noun: string): string {
 
 export const formatCurrency = (amount: number | null) => {
     const value = amount || 0;
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('pl-PL', {
         style: 'currency',
-        currency: 'PL',
+        currency: 'PLN',
         minimumFractionDigits: 0,
         maximumFractionDigits: 0,
     }).format(value);
+};
+export const formatDate = (date: Date) => {
+    return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    }).format(date);
 };
