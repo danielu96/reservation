@@ -10,3 +10,13 @@ export type PropertyCardProps = {
     tagline: string;
     price: number;
 };
+export type DateRangeSelect = {
+    startDate: Date;
+    endDate: Date;
+    key: string;
+};
+
+export type Booking = {
+    checkIn: Date;
+    checkOut: Date;
+};
