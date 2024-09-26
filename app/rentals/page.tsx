@@ -1,5 +1,7 @@
 import React from 'react'
-import { fetchRentals } from '@/utils/actions'
+import { fetchRentals, deleteRentalAction } from '@/utils/actions'
+import FormContainer from '@/components/form/FormContainer';
+import { IconButton } from '@/components/form/Buttons';
 import EmptyList from '@/components/home/EmptyList';
 import Link from 'next/link';
 import {
@@ -48,12 +50,26 @@ async function RentalsPage() {
                                 <TableCell>{price}</TableCell>
                                 <TableCell>{totalNightsSum}</TableCell>
                                 <TableCell>{orderTotalSum}</TableCell>
+                                <TableCell>
+                                    <DeleteRental propertyId={propertyId} />
+                                </TableCell>
+
                             </TableRow>
                         )
                     })}
                 </TableBody>
             </Table>
         </div>
-    )
+    );
 }
+function DeleteRental({ propertyId }: { propertyId: string }) {
+    const deleteRental = deleteRentalAction.bind(null, { propertyId });
+    return (
+        <FormContainer action={deleteRental}>
+            <IconButton actionType='delete' />
+        </FormContainer>
+    );
+}
+
+
 export default RentalsPage;
