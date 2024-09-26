@@ -27,6 +27,7 @@ async function RentalsPage() {
 
     return (
         <div>
+            <h5>Rentals: {rentals.length}</h5>
             <Table>
                 <TableCaption>All Yours Rentals</TableCaption>
                 <TableHeader>
@@ -50,7 +51,10 @@ async function RentalsPage() {
                                 <TableCell>{price}</TableCell>
                                 <TableCell>{totalNightsSum}</TableCell>
                                 <TableCell>{orderTotalSum}</TableCell>
-                                <TableCell>
+                                <TableCell className='flex items-center gap-2'>
+                                    <Link href={`/rentals/${propertyId}/edit`}>
+                                        <IconButton actionType='edit'></IconButton>
+                                    </Link>
                                     <DeleteRental propertyId={propertyId} />
                                 </TableCell>
 
