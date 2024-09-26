@@ -25,19 +25,25 @@ async function RentalsPage() {
     return (
         <div>
             <Table>
+                <TableCaption>All Yours Rentals</TableCaption>
                 <TableHeader>
                     <TableRow>
                         <TableHead>Name</TableHead>
                         <TableHead>Price</TableHead>
+                        <TableHead>Nights</TableHead>
+                        <TableHead>Total</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {rentals.map((rental) => {
                         const { id: propertyId, name, price } = rental;
+                        const { totalNightsSum, orderTotalSum } = rental;
                         return (
                             <TableRow key={propertyId}>
                                 <TableCell>{name}</TableCell>
                                 <TableCell>{price}</TableCell>
+                                <TableCell>{totalNightsSum}</TableCell>
+                                <TableCell>{orderTotalSum}</TableCell>
                             </TableRow>
                         )
                     })}
