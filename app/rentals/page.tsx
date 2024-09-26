@@ -1,6 +1,7 @@
 import React from 'react'
 import { fetchRentals } from '@/utils/actions'
 import EmptyList from '@/components/home/EmptyList';
+import Link from 'next/link';
 import {
     Table,
     TableBody,
@@ -40,7 +41,10 @@ async function RentalsPage() {
                         const { totalNightsSum, orderTotalSum } = rental;
                         return (
                             <TableRow key={propertyId}>
-                                <TableCell>{name}</TableCell>
+                                <TableCell>
+                                    <Link href={`/properties/${propertyId}`}>
+                                        {name}</Link>
+                                </TableCell>
                                 <TableCell>{price}</TableCell>
                                 <TableCell>{totalNightsSum}</TableCell>
                                 <TableCell>{orderTotalSum}</TableCell>
