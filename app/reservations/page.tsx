@@ -1,5 +1,6 @@
 import React from 'react'
 import { fetchReservations } from '@/utils/actions'
+import Link from 'next/link';
 
 async function ReservationsPage() {
     const reservations = await fetchReservations();
@@ -10,7 +11,14 @@ async function ReservationsPage() {
                 const { id } = item;
                 const { id: propertyId, name, country, price } = item.property;
                 return (
-                    <div key={id}>{name}{country}{price}</div>
+                    <div key={id}>
+                        <Link
+                            href={`/properties/${propertyId}`}
+                            className='underline text-muted-foreground tracking-wide'
+                        >
+                            {name}
+                        </Link>
+                        {country}{price}</div>
                 )
             })}
 
