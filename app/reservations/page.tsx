@@ -23,6 +23,7 @@ async function ReservationsPage() {
         <div>
             <h1 className='mt-2 mb-3'>Total reservations: {reservations.length}</h1>
             <Table>
+                <TableCaption>A list of reservations.</TableCaption>
                 <TableHeader>
                     <TableRow>
                         <TableHead>Name</TableHead>
@@ -37,7 +38,7 @@ async function ReservationsPage() {
                         const { id, checkIn, checkOut } = item;
                         const { id: propertyId, name, country, price } = item.property;
                         const startDate = formatDate(checkIn);
-                        const endDate = formatDate(checkOut)
+                        const endDate = formatDate(checkOut);
                         return (
                             <TableRow key={id}>
                                 <TableCell>
@@ -58,7 +59,7 @@ async function ReservationsPage() {
                 </TableBody>
             </Table>
         </div>
-    )
+    );
 }
 
-export default ReservationsPage
+export default ReservationsPage;
