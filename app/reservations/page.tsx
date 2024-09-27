@@ -1,9 +1,14 @@
 import React from 'react'
 import { fetchReservations } from '@/utils/actions'
 import Link from 'next/link';
+import EmptyList from '@/components/home/EmptyList';
 
 async function ReservationsPage() {
     const reservations = await fetchReservations();
+    if (reservations.length === 0) {
+        return <EmptyList />;
+    }
+
     return (
         <div>
             <h1>ReservationsPage</h1>
