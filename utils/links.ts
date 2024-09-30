@@ -10,5 +10,6 @@ export const links: NavLink[] = [
   { href: '/reviews ', label: 'reviews' },
   { href: '/reservations', label: 'reservations' },
   { href: '/rentals/create ', label: 'create rental' },
-  { href: '/rentals', label: 'rentals' }
+  { href: '/rentals', label: 'rentals' },
+  { href: '/admin', label: 'admin' },
 ];
