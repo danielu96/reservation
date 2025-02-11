@@ -1,3 +1,4 @@
+
 "use client";
 
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
@@ -51,8 +52,12 @@ const Page: React.FC = () => {
 
     return (
         <div className='my-10 gap-6 items-center grid grid-cols-1 md:grid-cols-3 p-5'>
-            {displayedProperties.map((property: any) => (
-                <div className='bg-primary-foreground shadow-md rounded-lg p-6 text-center transition-opacity duration-500 ease-in-out opacity-0 animate-fadeIn' key={property.id}>
+            {displayedProperties.map((property: any, index: number) => (
+                <div
+                    className='bg-primary-foreground shadow-md rounded-lg p-6 text-center transition-opacity duration-500 ease-in-out opacity-0 animate-fadeIn'
+                    key={property.id}
+                    style={{ animationDelay: `${index * 0.5}s` }} // Delay each card by 0.5s
+                >
                     <h1 className='font-bold text-xl mb-2'>{property.rating}</h1>
                     <p className='text-gray-700'>{property.comment}</p>
                 </div>
