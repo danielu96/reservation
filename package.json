@@ -2,13 +2,16 @@
   "name": "reservation",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start:server": "ts-node -r tsconfig-paths/register server.ts"
   },
   "dependencies": {
+    "@apollo/client": "^3.12.11",
     "@clerk/nextjs": "^5.4.0",
     "@prisma/client": "^5.19.1",
     "@radix-ui/react-checkbox": "^1.1.1",
@@ -22,9 +25,11 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
     "@supabase/supabase-js": "^2.45.3",
+    "apollo-server": "^3.13.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
+    "graphql": "^16.10.0",
     "leaflet": "^1.9.4",
     "next": "14.2.5",
     "next-themes": "^0.3.0",
@@ -36,6 +41,8 @@
     "recharts": "^2.12.7",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "use-debounce": "^10.0.3",
     "world-countries": "^5.0.0",
     "zod": "^3.23.8",
