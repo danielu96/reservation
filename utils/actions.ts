@@ -91,12 +91,9 @@ export const updateProfileAction = async (
     try {
         const rawData = Object.fromEntries(formData);
 
-        // const validatedFields = profileSchema.safeParse(rawData);
+
         const validatedFields = validateWithZodSchema(profileSchema, rawData);
-        // if (!validatedFields.success) {
-        //     const errors = validatedFields.error.errors.map((error) => error.message);
-        //     throw new Error(errors.join(','));
-        // }
+
 
         await db.profile.update({
             where: {
@@ -135,20 +132,6 @@ export const updateProfileImageAction = async (
         return renderError(error);
     }
 };
-
-// export const createPropertyAction = async (
-//     prevState: any,
-//     formData: FormData
-// ): Promise<{ message: string }> => {
-//     const user = await getAuthUser();
-//     try {
-//         const rawData = Object.fromEntries(formData);
-//         const validatedFields = validateWithZodSchema(propertySchema, rawData);
-//     } catch (error) {
-//         return renderError(error);
-//     }
-//     redirect('/');
-// };
 export const createPropertyAction = async (
     prevState: any,
     formData: FormData
