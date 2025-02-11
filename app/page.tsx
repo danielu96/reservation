@@ -3,6 +3,7 @@ import CategoriesList from '@/components/home/CategoriesList';
 import PropertiesContainer from '@/components/home/PropertiesContainer';
 import LoadingCards from '@/components/card/LoadingCards';
 import { Suspense } from 'react';
+import GraphqlContainer from '@/components/admin/GraphqlContainer';
 
 function Home({
   searchParams,
@@ -21,6 +22,7 @@ function Home({
           search={searchParams.search}
         />
       </Suspense>
+      <GraphqlContainer />
     </section>
   );
 }
